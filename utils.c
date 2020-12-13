@@ -31,7 +31,7 @@ char *get_path_from_req(char *req_body, char *path)
   char *first_line;
   char *token;
   first_line = strsep(&req_body, "\r\n");
-  printf("request_str: %s\n", first_line);
+  printf("request_str: %s\n\n", first_line);
   // printf("Token: %s\n", first_line);
   for (int i = 0; i < 2; i++)
   {
