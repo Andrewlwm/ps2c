@@ -76,13 +76,13 @@ int main(void)
             continue;
         }
         FILE *f = NULL;
-        char *file_to_char = NULL;
+        char *file_to_char = read_file(&f, file_to_char, get_path_from_req(reicv_line, path));
 
         memset(response_msg, 0, BUFSIZE);
-        sprintf(response_msg, "%s%s%s", res_h,
-                read_file(&f, file_to_char, get_path_from_req(reicv_line, path)), "\r\n");
+        sprintf(response_msg, "%s%s%s", res_h, file_to_char, "\r\n");
 
         send(new_fd, (char *)response_msg, strlen((char *)response_msg), 0);
+        free(file_to_char);
         close(new_fd);
     }
 
