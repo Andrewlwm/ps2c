@@ -87,6 +87,7 @@ int main(void)
         send(new_fd, (char *)response_msg, strlen((char *)response_msg), 0);
 
         fclose(f);
+        free(file_to_char);
         close(new_fd);
     }
 
