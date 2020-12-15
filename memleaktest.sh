@@ -10,7 +10,7 @@ else
     make clean
     make
     ./server > output.txt & servpid=$!
-    for((i=0;i<1000;i++)); do
+    for ((i=0;i<1000;i++)); do
         ./client localhost > output.txt
         echo "Mem: $(pmap $servpid | tail -n 1 | awk '/[0-9]K/{print $2}')B"
     done
