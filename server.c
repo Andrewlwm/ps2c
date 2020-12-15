@@ -82,7 +82,8 @@ int main(void)
         sprintf(response_msg, "%s%s%s", res_h, file_to_char, "\r\n");
 
         send(new_fd, (char *)response_msg, strlen((char *)response_msg), 0);
-        free(file_to_char);
+
+        fclose(f);
         close(new_fd);
     }
 
