@@ -9,12 +9,11 @@ if [ "$servpid" != "" ]; then
 else
     make clean
     make
-    ./server > output.txt & servpid=$!
+    ./server >/dev/null & servpid=$!
     for ((i=0;i<1000;i++)); do
-        ./client localhost > output.txt
+        ./client localhost > /dev/null
         echo "Mem: $(pmap $servpid | tail -n 1 | awk '/[0-9]K/{print $2}')B"
     done
     kill $servpid
-    rm -f output.txt
     make clean
 fi
