@@ -7,7 +7,7 @@
 char *read_file(FILE **f, char *read_file, char *path)
 {
     read_file = NULL;
-    unsigned long size = 0;
+    size_t size = 0;
 
     if ((*f = fopen(path, "r")) == NULL)
     {

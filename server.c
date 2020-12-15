@@ -20,8 +20,10 @@ int main(void)
     char response_msg[BUFSIZE];
     int sin_size;
     int yes = 1;
-    char *res_h = "HTTP/1.1 200 OK\r\n"
-                  "Connection: close\r\n\r\n";
+    char *res_OK = "HTTP/1.1 200 OK\r\n"
+                   "Content-Type: text/html\r\n\r\n";
+    char *res_TO = "HTTP/1.1 408 REQUEST TIMEOUT\r\n"
+                   "Connection: close\r\n\r\n";
 
     if ((sockfd = socket(AF_INET, SOCK_STREAM, 0)) == -1)
     {
@@ -72,14 +74,15 @@ int main(void)
         }
         else
         {
-            perror("readrequest");
+            send(new_fd, (char *)res_TO, strlen((char *)res_TO), 0);
+            close(new_fd);
             continue;
         }
         FILE *f = NULL;
         char *file_to_char = read_file(&f, file_to_char, get_path_from_req(reicv_line, path));
 
         memset(response_msg, 0, BUFSIZE);
-        sprintf(response_msg, "%s%s%s", res_h, file_to_char, "\r\n");
+        sprintf(response_msg, "%s%s%s", res_OK, file_to_char, "\r\n");
 
         send(new_fd, (char *)response_msg, strlen((char *)response_msg), 0);
 
