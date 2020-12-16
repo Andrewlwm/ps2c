@@ -1,7 +1,7 @@
 #ifndef __UTILS_H
 #define __UTILS_H
 
-#define MYPORT 5000
+#define PORT 5000
 #define BACKLOG 10
 #define BUFSIZE 4096
 

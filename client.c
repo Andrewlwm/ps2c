@@ -7,9 +7,8 @@
 #include <sys/types.h>
 #include <netinet/in.h>
 #include <sys/socket.h>
+#include "utils.h"
 
-#define PORT 5000
-#define BUFSIZE 4096
 #define h_addr h_addr_list[0]
 
 int main(int argc, char *argv[])

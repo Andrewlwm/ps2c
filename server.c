@@ -38,7 +38,7 @@ int main(void)
     }
 
     my_addr.sin_family = AF_INET;
-    my_addr.sin_port = htons(MYPORT);
+    my_addr.sin_port = htons(PORT);
     my_addr.sin_addr.s_addr = INADDR_ANY;
     memset(&(my_addr.sin_zero), 0, 8);
 
