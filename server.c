@@ -18,7 +18,7 @@ int main(void)
     struct sockaddr_in their_addr;
     char reicv_line[BUFSIZE];
     char response_msg[BUFSIZE];
-    int sin_size;
+    socklen_t sin_size;
     int yes = 1;
     char *res_OK = "HTTP/1.1 200 OK\r\n"
                    "Content-Type: text/html\r\n\r\n";
