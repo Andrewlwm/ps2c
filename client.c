@@ -10,6 +10,7 @@
 
 #define PORT 5000
 #define BUFSIZE 4096
+#define h_addr h_addr_list[0]
 
 int main(int argc, char *argv[])
 {
@@ -36,8 +37,6 @@ int main(int argc, char *argv[])
         perror("socket");
         exit(1);
     }
-
-#define h_addr h_addr_list[0]
 
     their_addr.sin_family = AF_INET;
     their_addr.sin_port = htons(PORT);
