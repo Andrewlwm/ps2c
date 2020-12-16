@@ -17,6 +17,6 @@ else
         fi
     done
     kill $servpid
-    objdump -t server
+    #objdump -t server
     make clean
 fi
