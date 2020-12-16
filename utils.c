@@ -18,7 +18,7 @@ char *read_file(FILE **f, char *read_file, char *path)
 
     rewind(*f);
 
-    read_file = malloc((size + 1) * sizeof(read_file));
+    read_file = malloc((size + 1) * sizeof(char));
     fread(read_file, size, 1, *f);
     read_file[size] = 0;
 
