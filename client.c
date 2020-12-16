@@ -8,7 +8,6 @@
 #include <netinet/in.h>
 #include <sys/socket.h>
 
-#define h_addr h_addr_list[0]
 #define PORT 5000
 #define BUFSIZE 4096
 
@@ -37,6 +36,8 @@ int main(int argc, char *argv[])
         perror("socket");
         exit(1);
     }
+
+#define h_addr h_addr_list[0]
 
     their_addr.sin_family = AF_INET;
     their_addr.sin_port = htons(PORT);
