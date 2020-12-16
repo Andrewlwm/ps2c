@@ -11,7 +11,7 @@ else
     make
     ./server >/dev/null & servpid=$!
     for ((i=0;i<5000;i++)); do
-        ./client localhost > /dev/null
+        ./client localhost >/dev/null
         if !(($i % 25 )) ; then
             echo "Mem: $(pmap $servpid | tail -n 1 | awk '/[0-9]K/{print $2}')B"
         fi
