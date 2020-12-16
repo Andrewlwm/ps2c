@@ -8,6 +8,7 @@
 #include <netinet/in.h>
 #include <sys/socket.h>
 
+#define h_addr h_addr_list[0]
 #define PORT 5000
 #define BUFSIZE 4096
 
